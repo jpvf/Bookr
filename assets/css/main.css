@@ -1,0 +1,13 @@
+form label{diplay:block;float:left;width:30%;font-weight:bold;text-align:left}
+form label small{font-weight:normal;display:block;color:#666}
+form li{border-top:1px solid #e5e5e5;overflow:hidden;padding:25px}
+form li:first-child{border:none}
+form li input{width:65%}
+form ul{margin:0px; list-style-type:none; padding:0px}
+
+.well form{padding:0px;}
+div.empty{width: 385px;border: 1px dashed #E5E5E5;padding: 10px;margin: 100px auto;}
+.well .btn.primary {margin-bottom: 10px;}
+
+.notification {margin-right:20px;color:#fff !important;display:inline-block;width: 37px;padding:0px 10px;text-decoration:none !important;text-align: center;background-color: #C43C35;background-repeat: repeat-x;background-image: -khtml-gradient(linear, left top, left bottom, from(#ee5f5b), to(#c43c35));background-image: -moz-linear-gradient(top, #ee5f5b, #c43c35);background-image: -ms-linear-gradient(top, #ee5f5b, #c43c35);background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ee5f5b), color-stop(100%, #c43c35));background-image: -webkit-linear-gradient(top, #ee5f5b, #c43c35);background-image: -o-linear-gradient(top, #ee5f5b, #c43c35);background-image: linear-gradient(top, #ee5f5b, #c43c35);filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ee5f5b', endColorstr='#c43c35', GradientType=0);text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);border-color: #C43C35 #C43C35 #882A25;border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);}
+.notification:hover{color:#f7f7f7;}

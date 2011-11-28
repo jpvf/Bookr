@@ -1,0 +1,69 @@
+resource: products
+resource-singular: product
+id: id
+relations:
+ categories:
+  primary: id
+  foreign: id_category
+  type: left
+ users:
+  primary: id
+  foreign: id_user
+columns:
+ products.id:
+  hidden: true
+ users.id(user_id):
+  hidden: true
+ id_category:
+  hidden: true
+ products.name: 
+  label: Name
+  as: anchor
+  href: admin/products/{$row->id}/details
+ products.description: Description
+ users.first_name+users.last_name: Created By
+ products.created_at: Created at
+ products.active: 
+  label: Active
+  as: active_to_string
+ categories.name(category): Category
+ users.email(ee): 
+  label: User email
+  as: anchor
+  href: 'admin/users/{$row->user_id}/details'
+create:
+ name: Name
+ description: 
+  label: Description
+  as: textarea
+ created_at:
+  at: post
+  as: helper
+  at_var: today(TRUE)
+ id_category:
+  as: select
+  model: categories/categories_model
+  label: Category
+  id: id
+  option: name
+ id_user:
+  at: post
+  as: var
+  at_var: $this->acl->id
+default_actions: true
+filter_by:
+ products.name: Name
+ users.first_name: First Name
+ users.last_name: Last Name
+ products.created_at: Created at
+ categories.id(category): 
+  label: Category
+  as: select
+  model: categories/categories_model
+scope:
+ all: All => default
+ products.active = 1: Active
+ categories.id = 2: Cat 
+bulk:
+ delete: Delete
+export: csv,json

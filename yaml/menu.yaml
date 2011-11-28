@@ -1,0 +1,24 @@
+resource: menus
+resource-singular: menu
+id: id
+columns:
+ menus.id:
+  hidden: true
+ menus.name: 
+  label: Name
+  as: anchor
+  href: admin/menus/{$row->id}/details
+ menus.description: Description
+create:
+ name: Name
+ description: 
+  label: Description
+  as: textarea
+default_actions: true
+filter_by:
+ menus.name: Name
+scope:
+ all: All => default
+bulk:
+ delete: Delete
+export: csv,json

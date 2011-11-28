@@ -1,0 +1,68 @@
+resource: reservations
+resource-singular: reservation
+id: id
+relations:
+ payments:
+  primary: id_reservation
+  foreign: id
+  type: left
+ users:
+  primary: id
+  foreign: id_user
+ ships:
+  primary: id
+  foreign: id_ship
+columns:
+ reservations.id:
+  hidden: true
+ users.id(user_id):
+  hidden: true
+ ships.id(ship_id):
+  hidden: true
+ reservations.reservation_num: 
+  label: Reserva
+  as: anchor
+  href: admin/reservation/{$row->reservation_num}/details
+ reservations.name+reservations.last_name: Pasajero
+ reservations.gross_rate: Monto
+ reservations.taxes: Impuestos
+ reservations.others: Otros
+ reservations.reservation_date: 'Fecha de Reserva'
+ reservations.sailing_date: 'Fecha de Salida'
+ ships.name(ship_name): Barco
+create:
+ reservation_num: 'Número de reserva'
+ name: 'Nombre del pasajero'
+ last_name: 'Apellido del pasajero'
+ gross_rate: 'Monto'
+ taxes: Impuestos
+ others: Otros
+ reservation_date: 'Fecha de Reserva'
+ sailing_date: 'Fecha de Salida'
+ created_at:
+  at: post
+  as: helper
+  at_var: today(TRUE)
+ id_ship:
+  as: select
+  model: ships/ships_model
+  label: Barco
+  id: id
+  option: name
+ id_user:
+  at: post
+  as: var
+  at_var: $this->acl->id
+default_actions: true
+filter_by:
+ reservations.reservation_num: 'Número de reserva'
+ reservations.name: 'Nombre del pasajero'
+ reservations.last_name: 'Apellido del pasajero'
+ reservations.sailing_date: 'Fecha de salida'
+ ships.id(ship): 
+  label: Barco
+  as: select
+  model: ships/ships_model
+bulk:
+ delete: Delete
+export: csv,json

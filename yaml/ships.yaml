@@ -1,0 +1,20 @@
+resource: ships
+resource-singular: ship
+id: id
+columns:
+ ships.id:
+  hidden: true
+ ships.name: 
+  label: Nombre
+  as: anchor
+  href: admin/ships/{$row->id}/details
+ ships.abbreviature: Abreviatura
+ ships.active:
+  label: Active
+  as: active_to_string
+create:
+ name: 'Nombre del barco'
+ abbreviature: 'Abreviatura del nombre'
+filter_by:
+ ships.name: 'Nombre del barco'
+ ships.abbreviature: 'Abreviatura'
